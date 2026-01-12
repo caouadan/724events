@@ -30,13 +30,19 @@ export const DataProvider = ({ children }) => {
     if (data) return;
     getData();
   });
-  
+
+  /* 5.3 exportation de last pour l'utiliser dans le footer */
+  const last = data?.events?.sort((a, b) =>
+    new Date(a.date) > new Date(b.date) ? -1 : 1
+  )[0];
+
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         data,
         error,
+        last, /* <= 5.4 ajout de last dans le context */
       }}
     >
       {children}

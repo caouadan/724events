@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import md5 from "md5";
 import Icon from ".";
 
+/* Option ajout du test pour le hash des icons (ajout de data-testid="icon" hors test) */
+
 describe("Icon component", () => {
     describe("When a icon is created with name twitch", () => {
         it("the icon contain this path hash value 327fbc38c8e878259c3ec35ef231517a", () => {
@@ -11,8 +13,8 @@ describe("Icon component", () => {
     });
     describe("When a icon is created with name facebook", () => {
         it("the icon contain this path hash value bbea4c9e40773b969fdb6e406059f853", () => {
-            // to complete
+            render(<Icon name="facebook" />)
+            expect(md5(screen.getByTestId("icon").getAttribute('d'))).toEqual('bbea4c9e40773b969fdb6e406059f853')
         });
     });
 })
-

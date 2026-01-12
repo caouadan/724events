@@ -1,5 +1,5 @@
 export const MONTHS = {
-  1: "janvier",
+  1: "janvier", // 1.4. commencer à partir de 1 au lieu de 0
   2: "février",
   3: "mars",
   4: "avril",
@@ -13,4 +13,7 @@ export const MONTHS = {
   12: "décembre",
 };
 
-export const getMonth = (date) => MONTHS[date.getMonth()];
+// 1.5 corriger la fonction getMonth pour qu'elle retourne le bon mois avec + 1
+// 1.6 ajouter des tests unitaires pour getMonth
+/* export const getMonth = (date) => MONTHS[date.getMonth()]; */
+export const getMonth = (date) => MONTHS[date.getMonth() + 1];

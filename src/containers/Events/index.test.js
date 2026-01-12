@@ -83,6 +83,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("Conférence #productCON");
+      // 2.1 le test échoue ici car l'élément est toujours dans le document, à corriger
       expect(screen.queryByText("Forum #productCON")).not.toBeInTheDocument();
     });
   });

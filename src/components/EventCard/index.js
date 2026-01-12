@@ -12,6 +12,11 @@ const EventCard = ({
   small = false,
   ...props
 }) => (
+  // 1.3 observer les mois données et mois affichés dans la console navigateur
+  // breakpoint sur getMonth(date) => voir getMonth dans src/helpers/Date/index.js
+  /* console.log("EventCard date:", date);
+  console.log("Month affiché:", getMonth(date)); */
+
     <div
       data-testid="card-testid"
       className={`EventCard${small ? " EventCard--small" : ""}`}

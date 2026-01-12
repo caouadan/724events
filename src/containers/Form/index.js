@@ -8,14 +8,18 @@ const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500)
 
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
+  // 3.2 On a onSuccess et onError présents ici
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
+      /* console.log("sendContact appelé"); */
       setSending(true);
       // We try to call mockContactApi
       try {
+        // 3.3 Absence de onSuccess ici
         await mockContactApi();
         setSending(false);
+        onSuccess();
       } catch (err) {
         setSending(false);
         onError(err);
