@@ -29,16 +29,26 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Catégories");
+    const images = await screen.findAllByRole("img");
+  expect(images.length).toBeGreaterThan(0);
   })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list a people is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Samira");
+    await screen.findByText("Jean-baptiste");
   })
-  it("a footer is displayed", () => {
-    // to implement
+  it("a footer is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Notre derniére prestation");
+    await screen.findByText("contact@724events.com");
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Notre derniére prestation");
+    const images = await screen.findAllByRole("img");
+  expect(images.length).toBeGreaterThan(0);
   })
 });
